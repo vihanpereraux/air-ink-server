@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 
 var app = express();
 var server = app.listen(3000);
