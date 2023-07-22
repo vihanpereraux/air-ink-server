@@ -35,7 +35,13 @@ var socketIO = require('socket.io')(http, {
 
 http.listen(3000, function(){
     console.log("socket server is running");
-    socketIO.on("connection", function(socket){
+    socketIO.on('connection', function(socket){
+        socket.on('mouse', function(clientData){
+            socket.broadcast.emit('mouse', clientData);
+            console.log(clientData);
+        });
         console.log('new connection ' + socket.id);
     });
 });
+
+app.use(express.static('public'));
