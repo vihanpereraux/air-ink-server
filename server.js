@@ -3,7 +3,9 @@ var cors = require('cors');
 
 var app = express();
 var server = app.listen(3000);
-app.use(cors());
+app.use(cors({
+    origin: 'https://air-ink-client-01.netlify.app/'
+}));
 app.use(express.static('public'));
 
 console.log("socket server is running");
